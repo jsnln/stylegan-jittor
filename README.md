@@ -111,4 +111,4 @@ The setup is the the same as the colored symbols, but with maximum image size 32
 ### References
 
 - StyleGAN: [official github repository](https://github.com/NVlabs/stylegan), [pytorch implementation](https://github.com/rosinality/style-based-gan-pytorch), [paper](https://openaccess.thecvf.com/content_CVPR_2019/papers/Karras_A_Style-Based_Generator_Architecture_for_Generative_Adversarial_Networks_CVPR_2019_paper.pdf)
-- Jittor: [homepage](https://cg.cs.tsinghua.edu.cn/jittor/), [official github repository](https://github.com/Jittor/Jittor), [other jittor GANs](https://github.com/Jittor/gan-jittor)
+- Jittor: [homepage](https://cg.cs.tsinghua.edu.cn/jittor/), [official github repository](https://github.com/Jittor/Jittor), [other jittor GANs](https://github.com/Jittor/gan-jittor), [paper](https://cg.cs.tsinghua.edu.cn/papers/SCIS-2020-jittor.pdf)
