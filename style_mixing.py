@@ -1,3 +1,4 @@
+import os
 import tqdm
 import argparse
 import math
@@ -75,6 +76,7 @@ def style_mixing(generator, step, mean_style, n_source, n_target):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
+    parser.add_argument('-e', '--expname', type=str, required=True, help='experiment folder')
     parser.add_argument('--size', type=int, default=128, help='size of the image')
     parser.add_argument('--n_row', type=int, default=3, help='number of rows of sample matrix')
     parser.add_argument('--n_col', type=int, default=5, help='number of columns of sample matrix')
@@ -97,8 +99,11 @@ if __name__ == '__main__':
     img = sample(generator, step, mean_style, args.n_row * args.n_col)
     jt.misc.save_image(img, 'sample.png', nrow=args.n_col, normalize=True, range=(-1, 1))
     
+    if not os.path.exists(f'{args.expname}/style_mixing/'):
+        os.makedirs(f'{args.expname}/style_mixing/')
+    print(f"[LOG] Saving interpolated images...")
     for j in tqdm.tqdm(range(20)):
         img = style_mixing(generator, step, mean_style, args.n_col, args.n_row)
         jt.misc.save_image(
-            img, f'sample_mixing_{j}.png', nrow=args.n_col + 1, normalize=True, range=(-1, 1)
+            img, f'{args.expname}/style_mixing/sample_mixing_{j}.png', nrow=args.n_col + 1, normalize=True, range=(-1, 1)
         )
